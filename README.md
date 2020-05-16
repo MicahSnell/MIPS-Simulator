@@ -1,13 +1,15 @@
 # MIPS-Simulator
 ## Description
-The goal of this project was to simulate the operation of a MIPS CPU by utilizing a high level coding language. My program focused on the most basic MIPS instructions:
+This simulator began as a final project submission for my Computer Architecture class. The goal of this project was to simulate the operation of a MIPS CPU using a high level coding language. The first iteration of this program focused on the most basic MIPS instructions:
 * J, BEQ
 * ADD, ADDI, SUB
 * MULT, AND, OR
 * SRL, SLL, NOP
 * SW, LW
 
-The program takes valid assembly `.asm` files as input, executes the instructions within, and outputs the values stored in the registers and memory at the end of execution. An option to run the program in debug mode causes the program to print the contents of the register file and the control signals of the system after the execution of each instruction. The program is comprised of the files `MainApp.java` and `Simulator.java`. `MainApp.java` contains the main method of the program, which is responsible for:
+The program takes valid assembly `.asm` files as input, executes the instructions within, and outputs the values stored in the registers and memory at the end of execution. An option to run the program in debug mode causes the program to print the contents of the register file and the control signals of the system after the execution of each instruction. The program is comprised of the files `MainApp.java` and `Simulator.java`. 
+
+`MainApp.java` contains the main method of the program, which is responsible for:
 1. Determining the mode of operation
 2. Locating the input file provided by the user 
 3. Reading in and formatting the instructions
@@ -22,8 +24,8 @@ The aptly named file `Simulator.java` contains the code that is responsible for 
 
 The primitive integer type was chosen to represent each of the registers, and an int array of size 2000 (8kB) was used to represent memory.
 
-## Input File
-Your input file may contain any combination of the instructions listed above, providing they do not introduce control or data hazards. The syntax of the MIPS ISA should be utilized. The program recognizes register references in the format of `$t0`. Registers `$t0` through `$t9`, `$s0` through `$s7`, `$a0` through `$a3`, and `$v0` and `$v1` are recognized. Constants are also recognized in accordance with the MIPS ISA syntax. Three sample input files are given in the "test_files" directory.
+## Input File Guidelines
+This simulator accepts input files that contain any combination of the instructions listed above, providing they do not introduce control or data hazards. The syntax of the MIPS ISA should be utilized. The program recognizes register references in the format of `$t0`. Registers `$t0` through `$t9`, `$s0` through `$s7`, `$a0` through `$a3`, and `$v0` and `$v1` are recognized. Constants are also recognized in accordance with the MIPS ISA syntax. Three sample input files are given in the "test_files" directory.
 
 ## Build Instructions
 Since this program is written in Java, a Java Development Kit (JDK) must be installed on your system in order to run it. 
