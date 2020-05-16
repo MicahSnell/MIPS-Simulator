@@ -1,4 +1,4 @@
-# MIPS-Simulator
+# MIPS Simulator v1.0
 ## Description
 This simulator began as a final project submission for my Computer Architecture class. The goal of this project was to simulate the operation of a MIPS CPU using a high level coding language. The first iteration of this program focused on the most basic MIPS instructions:
 * J, BEQ
