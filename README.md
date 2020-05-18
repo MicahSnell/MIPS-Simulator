@@ -50,7 +50,7 @@ Currently, the program does not support the following elements of the MIPS ISA:
 1. Function calls of any kind
 2. Registers `$at`, `$gp`, `$sp`, `$fp`, `$ra`
 3. Floating point registers
-~~4. Inactive # comments~~
+4. ~~Inactive # comments~~
 5. Any instruction not listed in the description section
 6. Pipelining
 
