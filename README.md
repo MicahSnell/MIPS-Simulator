@@ -1,4 +1,4 @@
-# MIPS Simulator v1.0
+# MIPS Simulator v1.1
 ## Description
 This simulator began as a final project submission for my Computer Architecture class. The goal of this project was to simulate the operation of a MIPS CPU using a high level coding language. The first iteration of this program focused on the most basic MIPS instructions:
 * J, BEQ
@@ -50,15 +50,15 @@ Currently, the program does not support the following elements of the MIPS ISA:
 1. Function calls of any kind
 2. Registers `$at`, `$gp`, `$sp`, `$fp`, `$ra`
 3. Floating point registers
-4. Inactive # comments
+~~4. Inactive # comments~~
 5. Any instruction not listed in the description section
 6. Pipelining
 
 Only the aforementioned instructions can be utilized in the input file. This limits the simulator to only very basic MIPS assembly files. The simulator executes instructions sequentially. This means there is no need for storing or forwarding, as it is not possible for data or control hazards to exist.
 
 ## Future Updates
-* v1.1 will add registers `$at`, `$gp`, `$sp`, `$fp`, `$ra` and function calls
-* v1.2 will add # comments
+* ~~v1.1 will add # comments~~
+* v1.2 will add registers `$at`, `$gp`, `$sp`, `$fp`, `$ra` and function calls
 * v1.3 will add floating point registers
 * v2.0 will add the remainder of the MIPS instructions
 * v3.0 will implement concurrent execution of instructions
