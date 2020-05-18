@@ -55,10 +55,22 @@ public class  MainApp {
          String filePath = args[0];
          FileReader file = new FileReader(filePath);
          Scanner inFile = new Scanner(file);
-         String fileContents = null;
+         String fileContents = null,
+                        temp = null;
+         int temp2;
 
          while (inFile.hasNextLine()) {
-            fileContents += inFile.nextLine();
+            temp = inFile.nextLine();
+            
+            if (temp.contains("#")) {
+               temp2 = temp.indexOf("#");
+               if (temp2 == 0)
+                  continue;
+               
+               temp = temp.substring(0, temp2);
+            }
+            
+            fileContents += temp;
             fileContents += " ";
          }
          inFile.close();
@@ -69,10 +81,11 @@ public class  MainApp {
          fileContents = fileContents.replaceAll("[()]", " ");
          fileContents = fileContents.toLowerCase();
 
-         String[] instructions = fileContents.split("\\s+");
-
+         ArrayList<String> instructions =
+                    new ArrayList<>(Arrays.asList(fileContents.split("\\s+")));
          Simulator mips = new Simulator(instructions, mode);
          mips.begin();
+         
       } catch (NullPointerException npe) {
          System.err.println("\nFile contents are null, please try again and " +
                  "ensure the file path is typed correctly.\n");
