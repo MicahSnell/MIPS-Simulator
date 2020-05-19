@@ -51,16 +51,18 @@ Currently, the program does not support the following elements of the MIPS ISA:
 2. Registers `$at`, `$gp`, `$sp`, `$fp`, `$ra`
 3. Floating point registers
 4. ~~Inactive # comments~~
-5. Any instruction not listed in the description section
-6. Pipelining
+5. Assembler Directives
+6. Any instruction not listed in the description section
+7. Pipelining
 
 Only the aforementioned instructions can be utilized in the input file. This limits the simulator to only very basic MIPS assembly files. The simulator executes instructions sequentially. This means there is no need for storing or forwarding, as it is not possible for data or control hazards to exist.
 
 ## Future Updates
 * ~~v1.1 will add # comments~~
-* v1.2 will add registers `$at`, `$gp`, `$sp`, `$fp`, `$ra` and function calls
-* v1.3 will add floating point registers
-* v2.0 will add the remainder of the MIPS instructions
-* v3.0 will implement concurrent execution of instructions
-* v3.1 will handle control and data hazards with store and forward
-* v4.0 will implement a GUI to better demonstrate the MIPS ISA
+* v1.15 will add assembler directives
+* v1.2  will add registers `$at`, `$gp`, `$sp`, `$fp`, `$ra` and function calls
+* v1.3  will add floating point registers
+* v2.0  will add the remainder of the MIPS instructions
+* v3.0  will implement concurrent execution of instructions
+* v3.1  will handle control and data hazards with store and forward
+* v4.0  will implement a GUI to better demonstrate the MIPS ISA
