@@ -1,5 +1,7 @@
 package mipsArchitecture;
 
+import java.util.ArrayList;
+
 /**
  * Class that supports the MIPS Architecture Simulator.
  * The register file, memory, and the 5 stages of the MIPS pipeline are
@@ -12,7 +14,7 @@ class Simulator {
     * @param instructions formatted instructions from input file
     * @param mode debug flag variable
     */
-   public Simulator(String[] instructions, boolean mode) {
+   public Simulator(ArrayList<String> instructions, boolean mode) {
       this.instructions = instructions;
       this.debug = mode;
    }
@@ -30,21 +32,21 @@ class Simulator {
    private void fetch() {
       boolean finalOutput = false;
 
-      for (pc = 0; pc < instructions.length; pc += 4) {
-         switch (instructions[pc]) {
+      for (pc = 0; pc < instructions.size(); pc += 4) {
+         switch (instructions.get(pc)) {
             case "j":
                aluControl = 1;
                writeToMem = 0;
                readMem = 0;
-               readRegisters(instructions[pc + 1], "0", "0");
+               readRegisters(instructions.get(pc + 1), "0", "0");
                break;
 
             case "beq":
                aluControl = 2;
                writeToMem = 0;
                readMem = 0;
-               readRegisters(instructions[pc + 1], instructions[pc + 2],
-                       instructions[pc + 3]);
+               readRegisters(instructions.get(pc + 1), instructions.get(pc + 2),
+                       instructions.get(pc + 3));
                break;
 
             case "add":
@@ -52,71 +54,71 @@ class Simulator {
                aluControl = 3;
                writeToMem = 0;
                readMem = 0;
-               readRegisters(instructions[pc + 1], instructions[pc + 2],
-                       instructions[pc + 3]);
+               readRegisters(instructions.get(pc + 1), instructions.get(pc + 2),
+                       instructions.get(pc + 3));
                break;
 
             case "sub":
                aluControl = 4;
                writeToMem = 0;
                readMem = 0;
-               readRegisters(instructions[pc + 1], instructions[pc + 2],
-                       instructions[pc + 3]);
+               readRegisters(instructions.get(pc + 1), instructions.get(pc + 2),
+                       instructions.get(pc + 3));
                break;
 
             case "sw":
                aluControl = 5;
                writeToMem = 1;
-               readRegisters(instructions[pc + 1], instructions[pc + 2],
-                       instructions[pc + 3]);
+               readRegisters(instructions.get(pc + 1), instructions.get(pc + 2),
+                       instructions.get(pc + 3));
                break;
 
             case "lw":
                aluControl = 6;
                writeToMem = 0;
                readMem = 1;
-               readRegisters(instructions[pc + 1], instructions[pc + 2],
-                       instructions[pc + 3]);
+               readRegisters(instructions.get(pc + 1), instructions.get(pc + 2),
+                       instructions.get(pc + 3));
                break;
 
             case "sll":
                aluControl = 7;
                writeToMem = 0;
                readMem = 0;
-               readRegisters(instructions[pc + 1], instructions[pc + 2],
-                       instructions[pc + 3]);
+               readRegisters(instructions.get(pc + 1), instructions.get(pc + 2),
+                       instructions.get(pc + 3));
                break;
 
             case "srl":
                aluControl = 8;
                writeToMem = 0;
                readMem = 0;
-               readRegisters(instructions[pc + 1], instructions[pc + 2],
-                       instructions[pc + 3]);
+               readRegisters(instructions.get(pc + 1), instructions.get(pc + 2),
+                       instructions.get(pc + 3));
                break;
 
             case "mult":
                aluControl = 9;
                writeToMem = 0;
                readMem = 0;
-               readRegisters(instructions[pc + 1], instructions[pc + 2],
-                       instructions[pc + 3]);
+               readRegisters(instructions.get(pc + 1), instructions.get(pc + 2),
+                       instructions.get(pc + 3));
                break;
 
             case "and":
                aluControl = 10;
                writeToMem = 0;
                readMem = 0;
-               readRegisters(instructions[pc + 1], instructions[pc + 2],
-                       instructions[pc + 3]);
+               readRegisters(instructions.get(pc + 1), instructions.get(pc + 2),
+                       instructions.get(pc + 3));
                break;
 
             case "or":
                aluControl = 11;
                writeToMem = 0;
                readMem = 0;
-               readRegisters(instructions[pc + 1], instructions[pc + 2],
-                       instructions[pc + 3]);
+               readRegisters(instructions.get(pc + 1), instructions.get(pc + 2),
+                       instructions.get(pc + 3));
                break;
 
             case "nop":
@@ -659,7 +661,7 @@ class Simulator {
    /**
     * Formatted instructions from input file
     */
-   private String[] instructions;
+   private ArrayList<String> instructions;
 
    /**
     * Control signal for ALU operation
